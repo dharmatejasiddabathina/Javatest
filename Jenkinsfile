@@ -14,9 +14,13 @@ pipeline {
                 stage('Build'){
 			steps {
                                 script{
-                                     bat set M2_HOME=D:\apache-maven-3.8.1
-                                     bat set path=D:\apache-maven-3.8.1:%path%
-				     bat 'mvn clean install'
+                                     bat '''
+                                     
+                                        set M2_HOME=D:\apache-maven-3.8.1
+                                        set path=D:\apache-maven-3.8.1:%path%
+				        mvn clean install
+                                        
+                                        '''
                                 }  
 
 			     }
