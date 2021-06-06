@@ -17,7 +17,7 @@ pipeline {
                                      bat '''
                                      
                                         set M2_HOME="D:/apache-maven-3.8.1"
-                                        set path="D:/apache-maven-3.8.1";%path%
+                                        set path="D:/apache-maven-3.8.1/bin";%path%
 				        mvn --version
                                         
                                         '''
