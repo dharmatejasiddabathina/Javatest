@@ -16,8 +16,8 @@ pipeline {
                                 script{
                                      bat '''
                                      
-                                        set M2_HOME="D:\apache-maven-3.8.1"
-                                        set path="D:\apache-maven-3.8.1";%path%
+                                        set M2_HOME="D:/apache-maven-3.8.1"
+                                        set path="D:/apache-maven-3.8.1";%path%
 				        mvn clean install
                                         
                                         '''
