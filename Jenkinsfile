@@ -18,7 +18,8 @@ pipeline {
                                      
                                         set M2_HOME="D:/apache-maven-3.8.1"
                                         set path="D:/apache-maven-3.8.1/bin";%path%
-				        mvn --version
+				        mvn clean verify
+                                        mvn clean install
                                         
                                         '''
                                 }  
