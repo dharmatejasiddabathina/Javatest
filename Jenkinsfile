@@ -1,8 +1,8 @@
 pipeline {
     agent any
-        envirnoment{
+       /* envirnoment{
              // path = 'D:\apache-maven-3.8.1:$path'
-                   }
+                   }*/
 	stages{
 		stage('checkout'){
 			steps {
