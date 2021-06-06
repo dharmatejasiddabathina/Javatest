@@ -1,5 +1,8 @@
 pipeline {
     agent any
+        envirnoment{
+              path = 'D:\apache-maven-3.8.1:$path'
+                   }
 	stages{
 		stage('checkout'){
 			steps {
@@ -11,7 +14,7 @@ pipeline {
                 stage('Build'){
 			steps {
                                 script{
-				sh 'mvn clean verify'
+				sh 'mvn clean install'
                                 }  
 
 			     }
