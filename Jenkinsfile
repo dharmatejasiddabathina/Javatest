@@ -1,5 +1,10 @@
 pipeline {
     agent any
+        
+        options {
+    disableConcurrentBuilds()
+    buildDiscarder(logRotator(numToKeepStr: env.BRANCH_NAME ==~ /master/ ? '15' : '10'))
+  }
        /* envirnoment{
              // path = 'D:\apache-maven-3.8.1:$path'
                    }*/
