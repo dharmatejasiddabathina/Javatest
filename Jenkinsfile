@@ -27,6 +27,14 @@ pipeline {
 			     }
 		                  }
                 stage('SonarQube analysis') { 
+                        environment { 
+
+            //def scannerHome = tool 'SonarScanner 4.10.0'
+
+            MSBUILD_SQ_SCANNER_HOME = tool name: 'sonarscanner', type: 'hudson.plugins.sonar.MsBuildSQRunnerInstallation'
+
+                }
+
                         steps{
                                 script{
          
