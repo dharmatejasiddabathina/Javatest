@@ -38,13 +38,12 @@ pipeline {
 					
                     withMaven(maven:'maven-3.8.1'){
 					    
-						bat '''
+						
                             
-                             set M2_HOME="D:/apache-maven-3.8.1"
-                             set path="D:/apache-maven-3.8.1/bin";%path%
-                             'mvn clean package sonar:sonar'
+                             
+                             bat 'mvn clean package sonar:sonar'
                             
-							'''
+							
                     }
                                 }
                         }
