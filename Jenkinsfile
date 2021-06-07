@@ -39,10 +39,11 @@ pipeline {
                                 script{
                         
                   withSonarQubeEnv('sonar') {
-                                         set M2_HOME="D:/apache-maven-3.8.1"
-                                        set path="D:/apache-maven-3.8.1/bin";%path%
+                                        
                     // Optionally use a Maven environment you've configured already
                     withMaven(maven:'maven-3.8.1') {
+                            bat set M2_HOME="D:/apache-maven-3.8.1"
+                                      bat  set path="D:/apache-maven-3.8.1/bin";%path%
                         bat 'mvn clean package sonar:sonar'
                     }
                                 }
