@@ -1,10 +1,5 @@
 pipeline {
     agent any
-        
-        options {
-    disableConcurrentBuilds()
-    buildDiscarder(logRotator(numToKeepStr: env.BRANCH_NAME ==~ /master/ ? '15' : '10'))
-  }
        /* envirnoment{
              // path = 'D:\apache-maven-3.8.1:$path'
                    }*/
@@ -56,13 +51,17 @@ pipeline {
 	      }
 		  
 		  stage("Quality Gate"){
-  timeout(time: 1, unit: 'HOURS') { // Just in case something goes wrong, pipeline will be killed after a timeout
-    def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
-    if (qg.status != 'OK') {
-      error "Pipeline aborted due to quality gate failure: ${qg.status}"
-    }
-	}
-	}
+		             steps{
+					 script{
+                 timeout(time: 1, unit: 'HOURS') { // Just in case something goes wrong, pipeline will be killed after a timeout
+                  def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
+                 if (qg.status != 'OK') {
+                 error "Pipeline aborted due to quality gate failure: ${qg.status}"
+                                        }
+	                                           }
+	                          }
+							 }
+							}
 		
 		  
         }
