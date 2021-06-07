@@ -29,7 +29,7 @@ pipeline {
                 stage('SonarQube analysis') { 
                         steps{
                                 script{
-           withSonarQubeEnv('Sonar') { 
+          /* withSonarQubeEnv('Sonar') { 
           bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.3.0.603:sonar ' + 
           '-f all/pom.xml ' +
           '-Dsonar.projectKey=com.huettermann:all:master ' +
@@ -40,7 +40,12 @@ pipeline {
           '-Dsonar.tests=. ' +
           '-Dsonar.test.inclusions=**/*Test*/** ' +
           '-Dsonar.exclusions=**/*Test*/**'
-        }
+        }*/
+                  withSonarQubeEnv('My SonarQube Server') {
+                    // Optionally use a Maven environment you've configured already
+                    withMaven(maven:'Maven 3.5') {
+                        bat 'mvn clean package sonar:sonar'
+                    }
                                 }
                         }
     }
