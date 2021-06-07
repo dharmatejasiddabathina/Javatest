@@ -38,7 +38,7 @@ pipeline {
                         steps{
                                 script{
          
-                  withSonarQubeEnv('My SonarQube Server') {
+                  withSonarQubeEnv('sonar') {
                     // Optionally use a Maven environment you've configured already
                     withMaven(maven:'Maven 3.5') {
                         bat 'mvn clean package sonar:sonar'
