@@ -65,7 +65,7 @@ pipeline {
 		stage("nexus upload"){
                         steps{      
 		script{
-                        nexusArtifactUploader artifacts: [[artifactId: 'spring-boot-starter-parent', classifier: '', file: 'target/spring-petclinic-2.4.5.jar', type: 'jar']], credentialsId: 'nexus-cred', groupId: 'org.springframework.boot', nexusUrl: 'localhost:8081/nexus', nexusVersion: 'nexus3', protocol: 'http', repository: 'http://localhost:8081/repository/javatest-nexus/', version: '2.4.5'
+                        nexusArtifactUploader artifacts: [[artifactId: 'spring-boot-starter-parent', classifier: '', file: 'target/spring-petclinic-2.4.5.jar', type: 'jar']], credentialsId: 'nexus-cred', groupId: 'org.springframework.boot', nexusUrl: 'localhost:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'javatest-nexus', version: '2.4.5'
                        
 		/*nexusArtifactUploader credentialsId: 'nexus-cred', groupId: 'com.test', nexusUrl: 'http://localhost:8081/', nexusVersion: 'nexus3', protocol: 'http', repository: 'javatest-nexus', version: '0.0.1-snapshot'
 		*/
