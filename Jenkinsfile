@@ -68,8 +68,8 @@ pipeline {
                         nexusArtifactUploader artifacts: [[artifactId: 'spring-petclinic-2.4.5', 
                                                            classifier: '', 
                                                            file: 'C:\\Users\\S Dharmateja\\.jenkins\\workspace\\java_test_main\\target', 
-                                                           type: 'spring-petclinic-2.4.5.jar']], 
-                                credentialsId: 'nexus-cred', groupId: 'com.test', nexusUrl: 'http://localhost:8081/', nexusVersion: 'nexus2', protocol: 'http', repository: 'http://localhost:8081/', version: '0.0.1-snapshot'
+                                                           type: 'jar']], 
+                                credentialsId: 'nexus-cred', groupId: 'com.test', nexusUrl: 'http://localhost:8081/', nexusVersion: 'nexus2', protocol: 'http', repository: 'javatest-nexus', version: '0.0.1-snapshot'
 		/*nexusArtifactUploader credentialsId: 'nexus-cred', groupId: 'com.test', nexusUrl: 'http://localhost:8081/', nexusVersion: 'nexus3', protocol: 'http', repository: 'javatest-nexus', version: '0.0.1-snapshot'
 		*/
                         
