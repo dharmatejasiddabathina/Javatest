@@ -83,11 +83,11 @@ pipeline {
                     downloadNexusArtifact groupId: 'org.springframework.boot',
                     artifactId: 'spring-boot-starter-parent',
                     repo:'javatest-nexus',
-                    release: ''.toBoolean(),
                     extension: 'jar',
                     version: '2.4.5',
                     downloadFileName: 'spring-petclinic-2.4.5.jar'
 					
+                    
                 }
 				}
                 }
