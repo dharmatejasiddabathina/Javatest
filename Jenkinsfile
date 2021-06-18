@@ -26,7 +26,7 @@ pipeline {
 
 			     }
 		                  }
-                stage('SonarQube analysis') { 
+               /* stage('SonarQube analysis') { 
                        
 
                         steps{
@@ -60,6 +60,13 @@ pipeline {
 							}
 		
 		  
-        }
+        } */
+		
+		stage("nexus upload"){
+		script{
+		nexusArtifactUploader credentialsId: 'nexus-cred', groupId: 'com.test', nexusUrl: 'http://localhost:8081/', nexusVersion: 'nexus3', protocol: 'http', repository: 'javatest-nexus', version: '0.0.1-snapshot'
+		}
+		
+		}
 }
 }
