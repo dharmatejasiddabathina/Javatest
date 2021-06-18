@@ -74,5 +74,22 @@ pipeline {
                         }
 		
 		}
+                stage("nexus download")
+                {
+                        steps {
+				println "Downloading from nexus repo..."
+                script{
+                    
+                    downloadNexusArtifact groupId: 'org.springframework.boot',
+                    artifactId: 'spring-boot-starter-parent',
+                    repo:'javatest-nexus',
+                    release: ''.toBoolean(),
+                    extension: 'jar',
+                    version: '2.4.5',
+                    downloadFileName: 'spring-petclinic-2.4.5.jar'
+					
+                }
+				}
+                }
 }
 }
