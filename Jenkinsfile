@@ -79,13 +79,16 @@ pipeline {
                         steps {
 				println "Downloading from nexus repo..."
                 script{
-                    
+                  bat  'curl --user admin:Dharma@481 -o spring-petclinic-2.4.5.jar http://localhost:8081/javatest-nexus/spring-petclinic-2.4.5.jar'
+                            
+                        /*
                     downloadNexusArtifact groupId: 'org.springframework.boot',
                     artifactId: 'spring-boot-starter-parent',
                     repo:'javatest-nexus',
+                    release: ''.toBoolean(),
                     extension: 'jar',
                     version: '2.4.5',
-                    downloadFileName: 'spring-petclinic-2.4.5.jar'
+                    downloadFileName: 'spring-petclinic-2.4.5.jar' */
 					
                     
                 }
