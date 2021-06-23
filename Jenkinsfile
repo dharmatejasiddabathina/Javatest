@@ -33,6 +33,7 @@ pipeline {
     steps{
         sshagent(credentials : ['dockernode-aws']) {
             sh 'ssh -o StrictHostKeyChecking=no ec2-user@18.221.236.246 uptime'
+            sh 'mkdir ~/.ssh && echo "$dockernode-aws" >> ~/.ssh/known_hosts'
            
            
         }
