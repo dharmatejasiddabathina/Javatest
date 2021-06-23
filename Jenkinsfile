@@ -98,11 +98,13 @@ pipeline {
 				stage('remote-aws'){
 				
 				steps{
+                                        script{
 				  sshagent(['dockernode-aws']) {
 				  
 				   sh 'ls -lart'
    
                           }
+                                        }
 				}
 				
 				}
