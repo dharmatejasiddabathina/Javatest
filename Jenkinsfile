@@ -62,7 +62,7 @@ pipeline {
 		  
         } */
 		
-		stage("nexus upload"){
+		/*stage("nexus upload"){
                         steps{      
 		script{
                         nexusArtifactUploader artifacts: [[artifactId: 'spring-boot-starter-parent', classifier: '', file: 'target/spring-petclinic-2.4.5.jar', type: 'jar']], credentialsId: 'nexus-cred', groupId: 'org.springframework.boot', nexusUrl: 'localhost:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'javatest-nexus', version: '2.4.5'
@@ -73,8 +73,8 @@ pipeline {
                 }
                         }
 		
-		}
-                stage("nexus download")
+		} */
+                /*stage("nexus download")
                 {
                         steps {
 				println "Downloading from nexus repo..."
@@ -93,6 +93,18 @@ pipeline {
                     
                 }
 				}
-                }
+                }*/
+				
+				stage('remote-aws'){
+				
+				steps{
+				  sshagent(['dockernode-aws']) {
+				  
+				   sh 'ls -lart'
+   
+                          }
+				}
+				
+				}
 }
 }
