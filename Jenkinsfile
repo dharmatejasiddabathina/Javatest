@@ -73,7 +73,7 @@ pipeline {
                 }
                         }
 		
-		} */
+		}*/
                 /*stage("nexus download")
                 {
                         steps {
