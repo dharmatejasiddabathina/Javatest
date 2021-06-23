@@ -33,7 +33,7 @@ pipeline {
 				steps{
                                         script{
 				  sshagent(['dockernode-aws']) {
-				  
+				  sh 'ssh ec2-user@18.221.236.246 ls -lart /home/ec2-user'
 				   sh 'ls -lart'
    
                           }
