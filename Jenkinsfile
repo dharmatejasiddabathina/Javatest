@@ -28,5 +28,41 @@ pipeline {
 			     }
 		                  }
               
+                
+                stage('SonarQube analysis') { 
+                       
+                        steps{
+                                script{
+                        
+                  withSonarQubeEnv('sonar') {
+                                        
+                    // Optionally use a Maven environment you've configured already
+					
+                    withMaven(maven:'maven-3.8.1'){
+					    
+						
+                            
+                             
+                             bat 'mvn clean package sonar:sonar'
+                            
+							
+                    }
+                                }
+                        }
+    }
+	      }
+		  
+		  stage("Quality Gate"){
+                          steps {
+                           sleep(10)
+              timeout(time: 1, unit: 'HOURS') {
+                waitForQualityGate abortPipeline: true
+                        
+              }
+							}
+		
+		  
+        } */
+		
 }
 }
